@@ -1,0 +1,22 @@
+{
+  "routerMap": [
+    {
+      "name": "search",
+      "pageSourceFile": "src/main/ets/_generated/ZRsearch.ets",
+      "buildFunction": "searchSearchPageBuilder",
+      "data": {
+        "needLogin": "false",
+        "others": "eyJtb2R1bGVOYW1lIjoic2VhcmNoIiwidXNlVGVtcGxhdGUiOmZhbHNlLCJ0aXRsZSI6IiIsImhpZGVUaXRsZUJhciI6dHJ1ZSwidXNlVjIiOmZhbHNlLCJsb0F0dHJpYnV0ZU5hbWUiOiIiLCJwYXJhbSI6IiJ9"
+      }
+    },
+    {
+      "name": "search_result",
+      "pageSourceFile": "src/main/ets/_generated/ZRsearch_result.ets",
+      "buildFunction": "searchSearchResultPageBuilder",
+      "data": {
+        "needLogin": "false",
+        "others": "eyJtb2R1bGVOYW1lIjoic2VhcmNoIiwidXNlVGVtcGxhdGUiOmZhbHNlLCJ0aXRsZSI6IiIsImhpZGVUaXRsZUJhciI6dHJ1ZSwidXNlVjIiOmZhbHNlLCJsb0F0dHJpYnV0ZU5hbWUiOiIiLCJwYXJhbSI6IiJ9"
+      }
+    }
+  ]
+}

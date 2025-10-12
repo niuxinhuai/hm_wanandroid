@@ -1,0 +1,92 @@
+{
+  "app": {
+    "signingConfigs": [
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {
+          "certpath": "/Users/niuxinhuai/.ohos/config/default_test_WUVTnn3op7WGiskNTYd93p1rh3u5F-U7hPGvDjxC6mY=.cer",
+          "keyAlias": "debugKey",
+          "keyPassword": "0000001B220785A53794A4422A60784379ADB71EEB893D2F21E0219C677934CF401981EF8FA6B38FBA4227",
+          "profile": "/Users/niuxinhuai/.ohos/config/default_test_WUVTnn3op7WGiskNTYd93p1rh3u5F-U7hPGvDjxC6mY=.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "/Users/niuxinhuai/.ohos/config/default_test_WUVTnn3op7WGiskNTYd93p1rh3u5F-U7hPGvDjxC6mY=.p12",
+          "storePassword": "0000001B46394A45DF519FE2FF003543082C97DE6AF28D217A55DD60F7DA7F9382862D22A34CC0C035083C"
+        }
+      }
+    ],
+    "products": [
+      {
+        "name": "default",
+        "signingConfig": "default",
+        "targetSdkVersion": "5.0.0(12)",
+        "compatibleSdkVersion": "5.0.0(12)",
+        "runtimeOS": "HarmonyOS",
+        "buildOption": {
+          "strictMode": {
+            "caseSensitiveCheck": true,
+            "useNormalizedOHMUrl": true
+          }
+        }
+      }
+    ],
+    "buildModeSet": [
+      {
+        "name": "debug",
+      },
+      {
+        "name": "release"
+      }
+    ]
+  },
+  "modules": [
+    {
+      "name": "entry",
+      "srcPath": "./entry",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "helper",
+      "srcPath": "./common/helper",
+    },
+    {
+      "name": "home",
+      "srcPath": "./feature/home",
+    },
+    {
+      "name": "knowledge",
+      "srcPath": "./feature/knowledge",
+    },
+    {
+      "name": "navigation",
+      "srcPath": "./feature/navigation",
+    },
+    {
+      "name": "project",
+      "srcPath": "./feature/project",
+    },
+    {
+      "name": "wechat",
+      "srcPath": "./feature/wechat",
+    },
+    {
+      "name": "common_widget",
+      "srcPath": "./common/common_widget",
+    },
+    {
+      "name": "web_page",
+      "srcPath": "./feature/web_page"
+    },
+    {
+      "name": "search",
+      "srcPath": "./feature/search",
+    }
+  ]
+}

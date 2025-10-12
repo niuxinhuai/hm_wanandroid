@@ -1,0 +1,9 @@
+{
+  "module": {
+    "name": "helper",
+    "type": "har",
+    "deviceTypes": [
+      "default"
+    ]
+  }
+}

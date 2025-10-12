@@ -1,0 +1,9 @@
+{
+  "module": {
+    "name": "common_widget",
+    "type": "har",
+    "deviceTypes": [
+      "default"
+    ]
+  }
+}

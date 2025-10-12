@@ -1,0 +1,9 @@
+{
+  "module": {
+    "name": "project",
+    "type": "har",
+    "deviceTypes": [
+      "default"
+    ]
+  }
+}

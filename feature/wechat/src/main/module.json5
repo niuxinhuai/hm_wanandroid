@@ -1,0 +1,9 @@
+{
+  "module": {
+    "name": "wechat",
+    "type": "har",
+    "deviceTypes": [
+      "default"
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "float": [
+    {
+      "name": "tab_local_width",
+      "value": "24vp"
+    },
+    {
+      "name": "tab_local_height",
+      "value": "24vp"
+    },
+    {
+      "name": "tab_service_width",
+      "value": "28vp"
+    },
+    {
+      "name": "tab_service_height",
+      "value": "28vp"
+    },
+    {
+      "name": "title_font_10",
+      "value": "10vp"
+    },
+    {
+      "name": "tab_top_margin",
+      "value": "6vp"
+    }
+  ]
+}

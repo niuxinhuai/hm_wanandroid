@@ -1,0 +1,19 @@
+{
+  "name": "entry",
+  "version": "1.0.0",
+  "description": "Please describe the basic information.",
+  "main": "",
+  "author": "",
+  "license": "",
+  "dependencies": {
+    "helper": "file:../common/helper",
+    "home": "file:../feature/home",
+    "knowledge": "file:../feature/knowledge",
+    "navigation": "file:../feature/navigation",
+    "project": "file:../feature/project",
+    "wechat": "file:../feature/wechat",
+    "web_page": "file:../feature/web_page",
+    "search": "file:../feature/search"
+  }
+}
+

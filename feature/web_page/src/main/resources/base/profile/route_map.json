@@ -1,0 +1,13 @@
+{
+  "routerMap": [
+    {
+      "name": "webPage",
+      "pageSourceFile": "src/main/ets/_generated/ZRWeb.ets",
+      "buildFunction": "web_pageWebPageBuilder",
+      "data": {
+        "needLogin": "false",
+        "others": "eyJtb2R1bGVOYW1lIjoid2ViX3BhZ2UiLCJ1c2VUZW1wbGF0ZSI6ZmFsc2UsInRpdGxlIjoiIiwiaGlkZVRpdGxlQmFyIjp0cnVlLCJ1c2VWMiI6ZmFsc2UsImxvQXR0cmlidXRlTmFtZSI6IiIsInBhcmFtIjoiIn0="
+      }
+    }
+  ]
+}

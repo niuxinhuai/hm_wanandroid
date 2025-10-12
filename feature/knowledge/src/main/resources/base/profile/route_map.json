@@ -1,0 +1,13 @@
+{
+  "routerMap": [
+    {
+      "name": "article",
+      "pageSourceFile": "src/main/ets/_generated/ZRknowledge_article.ets",
+      "buildFunction": "knowledgeKnowledgeArticlePageBuilder",
+      "data": {
+        "needLogin": "false",
+        "others": "eyJtb2R1bGVOYW1lIjoia25vd2xlZGdlIiwidXNlVGVtcGxhdGUiOmZhbHNlLCJ0aXRsZSI6IiIsImhpZGVUaXRsZUJhciI6dHJ1ZSwidXNlVjIiOmZhbHNlLCJsb0F0dHJpYnV0ZU5hbWUiOiIiLCJwYXJhbSI6IiJ9"
+      }
+    }
+  ]
+}
