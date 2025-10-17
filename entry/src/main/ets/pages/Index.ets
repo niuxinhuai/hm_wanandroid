@@ -1,11 +1,13 @@
 import { ZRouter } from '@hzw/zrouter';
-import { CommonServices, TabConstants } from 'helper';
+import { CommonServices, DefaultUser, TabConstants } from 'helper';
 import { HomePage } from 'home';
 import { KnowledgePage } from 'knowledge';
 import { NavigationPage } from 'navigation';
 import { ProjectPage } from 'project';
 import { WeChatPage } from 'wechat';
 import TabViewModel, { TabHashMap, TabModel } from './model/tab';
+import { OhosSmartDialog } from 'ohos_smart_dialog';
+import { AppStorageV2 } from '@kit.ArkUI';
 
 @Entry
 @ComponentV2
@@ -14,6 +16,11 @@ struct Index {
   private tabController: TabsController = new TabsController();
   private tabViewModel: TabViewModel = new TabViewModel();
   private newsList: TabHashMap = this.tabViewModel.getNewList();
+  private user:DefaultUser = DefaultUser.getInstance()
+
+  aboutToAppear(): void {
+    this.user.onCreate()
+  }
 
   @Builder
   TabBuilder(model: TabModel) {
@@ -33,31 +40,35 @@ struct Index {
   }
 
   build() {
-    Navigation(ZRouter.getNavStack()) {
-      Tabs({ barPosition: BarPosition.End, controller: this.tabController, index: this.curIndex }) {
-        TabContent() {
-          HomePage()
-        }.tabBar(this.TabBuilder(this.newsList.get(TabConstants.home_key)))
+    Stack(){
+      Navigation(ZRouter.getNavStack()) {
+        Tabs({ barPosition: BarPosition.End, controller: this.tabController, index: this.curIndex }) {
+          TabContent() {
+            HomePage()
+          }.tabBar(this.TabBuilder(this.newsList.get(TabConstants.home_key)))
 
-        TabContent() {
-          KnowledgePage()
-        }.tabBar(this.TabBuilder(this.newsList.get(TabConstants.knowledge_key)))
+          TabContent() {
+            KnowledgePage()
+          }.tabBar(this.TabBuilder(this.newsList.get(TabConstants.knowledge_key)))
 
-        TabContent() {
-          WeChatPage()
-        }.tabBar(this.TabBuilder(this.newsList.get(TabConstants.wechat_key)))
+          TabContent() {
+            WeChatPage()
+          }.tabBar(this.TabBuilder(this.newsList.get(TabConstants.wechat_key)))
 
-        TabContent() {
-          NavigationPage()
-        }.tabBar(this.TabBuilder(this.newsList.get(TabConstants.navigation_key)))
+          TabContent() {
+            NavigationPage()
+          }.tabBar(this.TabBuilder(this.newsList.get(TabConstants.navigation_key)))
 
-        TabContent() {
-          ProjectPage()
-        }.tabBar(this.TabBuilder(this.newsList.get(TabConstants.project_key)))
-      }.scrollable(false).onTabBarClick((idx) => {
-        this.curIndex = idx;
-      })
-    }.hideToolBar(true)
+          TabContent() {
+            ProjectPage()
+          }.tabBar(this.TabBuilder(this.newsList.get(TabConstants.project_key)))
+        }.scrollable(false).onTabBarClick((idx) => {
+          this.curIndex = idx;
+        })
+      }.hideToolBar(true)
+      OhosSmartDialog()
+    }.width('100%').height('100%')
+
 
   }
 }

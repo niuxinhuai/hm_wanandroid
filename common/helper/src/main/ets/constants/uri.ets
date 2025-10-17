@@ -57,4 +57,16 @@ export default class Uri {
 
   ///热搜
   static readonly hotSearch = "hotkey/json";
+
+  ///登录
+  static readonly login = 'user/login'
+
+  ///注册
+  static readonly register = 'user/register'
+
+  ///收藏文章列表
+  ///方法 - GET
+  static collectList(page:number,pageSize:number):string {
+    return `lg/collect/list/${page}/json?page_size=${pageSize}`
+  };
 }

@@ -2,13 +2,16 @@ import Uri from "../../constants/uri";
 import { HomeArticleWrap, HomeTopArticleWrap } from "../../models/home_article";
 import { HomeBannerWrap } from "../../models/home_banner";
 import { KnowledgeChild, KnowledgeWrap } from "../../models/knowledge";
+import { LoginWrap } from "../../models/login";
 import { NavigationWrap } from "../../models/navigation";
 import { ProjectWrap } from "../../models/project";
 import { HotSearchWrap } from "../../models/search";
 import { WeChartWrap } from "../../models/we_chat";
 import ServiceHelper, { apiRequest } from "../../service_helper/service_helper";
+import axios, { AxiosInstance, AxiosProgressEvent, AxiosRequestConfig, AxiosResponse, FormData,
+  InternalAxiosRequestConfig } from "@ohos/axios";
 
-export class CommonServices {
+export class CommonServices extends ServiceHelper {
 
   ///首页banner
   static async getHomeBanner():Promise<HomeBannerWrap> {
@@ -69,5 +72,23 @@ export class CommonServices {
   ///支持多个关键词，用空格隔开
   static async getSearch(page:number,keyword:string):Promise<HomeArticleWrap> {
     return await apiRequest.post(Uri.searchJson(page),{'k':keyword})
+  }
+
+  ///注册
+  static async register(userName:string,password:string,rePassword:string):Promise<LoginWrap> {
+    return apiRequest.post(Uri.register,{"username": userName,
+      "password": password,
+      "repassword": rePassword,})
+  }
+
+  ///登录
+  static async login(userName:string,password:string):Promise<AxiosResponse> {
+    return await apiRequest.postNormal(Uri.login,{"username": userName,
+      "password": password})
+  }
+
+  ///收藏文章列表
+  static async getCollectList(page:number,pageSize:number): Promise<HomeArticleWrap> {
+    return await apiRequest.get(Uri.collectList(page,pageSize))
   }
 }

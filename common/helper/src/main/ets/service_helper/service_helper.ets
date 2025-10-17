@@ -1,6 +1,7 @@
 import { LogUtils } from "@ohos/apng/src/main/ets/utils/LogUtils";
 import axios, { AxiosInstance, AxiosProgressEvent, AxiosRequestConfig, AxiosResponse, FormData,
   InternalAxiosRequestConfig } from "@ohos/axios";
+import { DefaultUser } from "../../../../Index";
 import Uri from "../constants/uri";
 
 
@@ -10,7 +11,6 @@ export default class ServiceHelper {
   constructor(config: AxiosRequestConfig) {
     //创建实例化对象
     this.instance = axios.create(config)
-
     this.instance.defaults.headers['Content-Type'] = 'application/x-www-form-urlencoded; charset=utf-8; application/json'
     //请求拦截
     this.instance.interceptors.request.use(async (config: InternalAxiosRequestConfig) => {
@@ -24,7 +24,9 @@ export default class ServiceHelper {
     })
   }
 
+  // 封装post
   public async post<T>(path: string, data: ESObject): Promise<T> {
+    this.instance.defaults.headers["Cookie"] = DefaultUser.getInstance().cookie ?? ''
     try {
       return await this.instance.post(path, data).then((value: AxiosResponse<T>) => {
         return value.data
@@ -35,12 +37,19 @@ export default class ServiceHelper {
     }
   }
 
-  // 封装post方法
-  public async postObj<T>(url: string, data?: object): Promise<AxiosResponse<T>> {
-    return await this.instance.post<null, AxiosResponse<T>>(url, data)
+  public async postNormal(path: string, data: ESObject): Promise<AxiosResponse> {
+    try {
+      return await this.instance.post(path, data).then((value: AxiosResponse) => {
+        return value
+      })
+    } catch (e) {
+      console.log(">>>>>>>>>>>POST请求错误" + JSON.stringify(e, null, 2))
+      return Promise.reject(e);
+    }
   }
 
   public async get<T>(path: string, queryParameters?: ESObject): Promise<T> {
+    this.instance.defaults.headers["Cookie"] = DefaultUser.getInstance().cookie ?? ''
     try {
       return await this.instance.get(path, queryParameters).then((value: AxiosResponse<T>) => {
         console.log(">>>>>>>>>>>GET请求成功" + value.data)

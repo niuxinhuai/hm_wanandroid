@@ -6,6 +6,7 @@
   "author": "",
   "license": "Apache-2.0",
   "dependencies": {
-    "helper": "file:../../common/helper"
+    "helper": "file:../../common/helper",
+    "login": "file:../../feature/login"
   }
 }
