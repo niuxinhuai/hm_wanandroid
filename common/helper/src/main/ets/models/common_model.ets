@@ -4,6 +4,8 @@ export interface CommonModel<T> {
   errorMsg?:string
 }
 
+export interface SimpleModel extends CommonModel<ESObject> {}
+
 export enum LoadingStatus {
   loading,
   error,
