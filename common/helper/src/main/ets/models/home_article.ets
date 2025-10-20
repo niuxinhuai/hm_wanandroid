@@ -21,6 +21,7 @@ export interface HomeArticleBean {
   canEdit?: boolean;
   chapterId?: number;
   chapterName?: string;
+  //这个字段不是收藏
   collect?: boolean;
   courseId?: number;
   desc?: string;

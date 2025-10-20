@@ -69,4 +69,20 @@ export default class Uri {
   static collectList(page:number,pageSize:number):string {
     return `lg/collect/list/${page}/json?page_size=${pageSize}`
   };
+
+  ///收藏站内文章
+  ///方法：POST
+  static collectIn(id:number | string):string {
+    return `lg/collect/${id}/json`
+  }
+
+  ///收藏站外文章
+  ///方法：POST
+  ///title，author，link
+  static readonly collectOut = "lg/collect/add/json";
+
+  ///取消收藏
+  static unCollect(id:number | string) {
+    return `lg/uncollect_originId/${id}/json`
+};
 }

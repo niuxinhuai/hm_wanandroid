@@ -5,6 +5,7 @@ class SpAppKey {
   static readonly _expires = "expires";
   static readonly _username = "username";
   static readonly _password = "password";
+  static readonly _collect_list = "collect_list";
 }
 
 export class SpUtil {
@@ -38,5 +39,13 @@ export class SpUtil {
 
   static async getPassword():Promise<string> {
     return await SpHelper.getString(SpAppKey._password)
+  }
+
+  static async setCollectList(list:string []) {
+    return await SpHelper.putAsync(SpAppKey._collect_list,list.join(','))
+  }
+
+  static async getCollectListStr():Promise<string>  {
+    return await SpHelper.getString(SpAppKey._collect_list)
   }
 }

@@ -1,4 +1,5 @@
-import { DefaultUser } from "helper";
+import { ClickUtil } from "@pura/harmony-utils";
+import { DefaultUser, IconUnicode, icon_font_family } from "helper";
 import { HomeArticleBean } from "helper/src/main/ets/models/home_article"
 import { LoginPage } from "login";
 import { SmartDialog } from 'ohos_smart_dialog';
@@ -18,19 +19,26 @@ function buildLoginDialog() {
 @ComponentV2
 export struct ArticleBottomWidget {
   @Param @Require data: HomeArticleBean
+  private user: DefaultUser = DefaultUser.getInstance()
+
+
 
   build() {
     Row() {
       this.buildLeft()
-      SymbolGlyph($r('sys.symbol.compass_circle'))
+      Text(this.user.collect_list.includes(`${this.data.title ?? ''}`) ? IconUnicode.favorite : IconUnicode.notFavorite)
+        .fontFamily(icon_font_family)
         .fontSize(24)
-        .effectStrategy(SymbolEffectStrategy.SCALE)
+        .fontColor(Color.Red)
         .onClick(() => {
-          if (!DefaultUser.getInstance().isLogin()) {
-            showLogin()
-            return
-          }
-          //收藏/取消收藏操作
+          ClickUtil.throttle(()=> {
+            if (!DefaultUser.getInstance().isLogin()) {
+              showLogin()
+              return
+            }
+            //收藏/取消收藏操作
+            this.user.userTapFavorite(this.data)
+          })
 
         })
     }.justifyContent(FlexAlign.SpaceBetween)

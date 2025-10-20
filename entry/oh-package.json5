@@ -13,6 +13,7 @@
     "project": "file:../feature/project",
     "wechat": "file:../feature/wechat",
     "web_page": "file:../feature/web_page",
+    "login":"file:../feature/login",
     "search": "file:../feature/search"
   }
 }
