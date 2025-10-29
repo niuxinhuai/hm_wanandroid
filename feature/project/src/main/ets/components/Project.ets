@@ -40,6 +40,21 @@ export struct ProjectPage {
         .focusOnTouch(false).onClick(() =>{
         RouterUtils.push(RouterConstants.search)
       })
+      Text('样例')
+        .fontSize(16)
+        .fontColor(Color.Red)
+        .fontWeight(FontWeight.Bold)
+        .padding({
+          left: 8,
+          right: 8,
+          top: 4,
+          bottom: 4
+        })
+        .borderRadius(4)
+        .backgroundColor('999999')
+        .margin({ left: 12 }).onClick(() => {
+        RouterUtils.push(RouterConstants.example)
+      })
       Text('搜索')
         .fontSize(16)
         .fontColor(Color.Red)
@@ -52,7 +67,9 @@ export struct ProjectPage {
         })
         .borderRadius(4)
         .backgroundColor('999999')
-        .margin({ left: 12 })
+        .margin({ left: 12 }).onClick(() => {
+        RouterUtils.push(RouterConstants.search)
+      })
     }.width('100%').padding({ left: 12, right: 12 })
   }
 

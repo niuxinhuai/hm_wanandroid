@@ -1,0 +1,13 @@
+{
+  "routerMap": [
+    {
+      "name": "example",
+      "pageSourceFile": "src/main/ets/_generated/ZRexample.ets",
+      "buildFunction": "exampleExamplePageBuilder",
+      "data": {
+        "needLogin": "false",
+        "others": "eyJtb2R1bGVOYW1lIjoiZXhhbXBsZSIsInVzZVRlbXBsYXRlIjpmYWxzZSwidGl0bGUiOiIiLCJoaWRlVGl0bGVCYXIiOnRydWUsInVzZVYyIjpmYWxzZSwibG9BdHRyaWJ1dGVOYW1lIjoiIiwicGFyYW0iOiIifQ=="
+      }
+    }
+  ]
+}

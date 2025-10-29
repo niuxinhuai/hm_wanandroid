@@ -10,7 +10,7 @@ export default class EntryAbility extends UIAbility {
     this.context.getApplicationContext().setColorMode(ConfigurationConstant.ColorMode.COLOR_MODE_NOT_SET);
     ZRouter.initialize((config) => {
       config.context = this.context
-      config.loadDynamicModule = [ 'web_page','knowledge',"search", '../_generated/ZRService.ets']
+      config.loadDynamicModule = [ 'web_page','knowledge',"search", "example",'../_generated/ZRService.ets']
       config.onDynamicLoadComplete = (path) => {
         if (path) {
           // entry模块的服务路由动态加载

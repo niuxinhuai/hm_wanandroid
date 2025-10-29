@@ -11,6 +11,10 @@
     {
       "name": "bundle_name",
       "value": "oh_wanAndroid"
+    },
+    {
+      "name": "open_picture",
+      "value": "打开相册需要申请权限"
     }
   ]
 }
