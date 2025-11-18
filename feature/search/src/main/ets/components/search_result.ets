@@ -13,6 +13,7 @@ export struct SearchResultPage {
   private viewModel: SearchResultViewModel = new SearchResultViewModel()
   @Provider() isRefreshing: boolean = false;
   @Local keyword:string = ''
+  @Local topRectHeight: number | undefined = AppStorage.get('topRectHeight');
 
   aboutToAppear(): void {
     const keyword = ZRouter.getInstance().getParamByKey('keyword') as string
@@ -53,6 +54,6 @@ export struct SearchResultPage {
       })
       .refreshOffset(64)
       .pullToRefresh(true)
-    }.title(`搜索结果页--${this.keyword}`)
+    }.title(`搜索结果页--${this.keyword}`).margin({top: this.getUIContext().px2vp(this.topRectHeight),})
   }
 }

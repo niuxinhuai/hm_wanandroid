@@ -10,6 +10,7 @@ export struct WebPage {
   private webController: WebviewController = new webview.WebviewController();
   @Local url?: string
   @Local title?: string
+  @Local topRectHeight: number | undefined = AppStorage.get('topRectHeight');
 
   aboutToAppear(): void {
     const param = ZRouter.getInstance().getParamByKey('link') as string
@@ -25,6 +26,6 @@ export struct WebPage {
       })
         .width('100%')
         .height('100%')
-    }.title(this.title)
+    }.title(this.title).margin({top: this.getUIContext().px2vp(this.topRectHeight),})
   }
 }

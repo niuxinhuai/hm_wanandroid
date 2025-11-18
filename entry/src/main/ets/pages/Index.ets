@@ -20,6 +20,7 @@ struct Index {
   private tabViewModel: TabViewModel = new TabViewModel();
   private newsList: TabHashMap = this.tabViewModel.getNewList();
   private user:DefaultUser = DefaultUser.getInstance()
+  @Local bottomRectHeight: number | undefined = AppStorage.get('bottomRectHeight');
 
    aboutToAppear(): void {
     font.registerFont({familyName:'iconfont',familySrc:'/fonts/iconfont.ttf'})
@@ -74,7 +75,7 @@ struct Index {
           }.scrollable(false).onTabBarClick((idx) => {
             this.curIndex = idx;
           })
-        }.hideToolBar(true)
+        }.hideToolBar(true).margin({bottom: this.getUIContext().px2vp(this.bottomRectHeight)})
       }
       OhosSmartDialog()
     }.width('100%').height('100%')

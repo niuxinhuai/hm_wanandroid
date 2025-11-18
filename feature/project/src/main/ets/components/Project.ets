@@ -8,6 +8,7 @@ export struct ProjectPage {
   private viewModel: ProjectViewModel = new ProjectViewModel()
   private tabController: TabsController = new TabsController()
   @Local curIndex: number = 0
+  @Local topRectHeight: number | undefined = AppStorage.get('topRectHeight');
 
   aboutToAppear(): void {
     this.viewModel.onCreate()
@@ -75,7 +76,7 @@ export struct ProjectPage {
         .onClick(() => {
           RouterUtils.push(RouterConstants.search)
         })
-    }.width('100%').padding({ left: 12, right: 12 })
+    }.width('100%').padding({ left: 12, right: 12 ,top:this.getUIContext().px2vp(this.topRectHeight)})
   }
 
   @Builder

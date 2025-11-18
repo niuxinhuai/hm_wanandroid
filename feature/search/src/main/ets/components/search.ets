@@ -12,6 +12,7 @@ import { apng } from "@ohos/apng";
 @ComponentV2
 export struct SearchPage {
   private viewModel: SearchViewModel = new SearchViewModel()
+  @Local topRectHeight: number | undefined = AppStorage.get('topRectHeight');
 
   aboutToAppear(): void {
     this.viewModel.onCreate()
@@ -26,7 +27,7 @@ export struct SearchPage {
       this.buildNormalSearch()
     }.title(this.buildSearchBar()).hideBackButton(true).onClick(() => {
       inputMethod.getController().stopInputSession()
-    })
+    }).margin({top: this.getUIContext().px2vp(this.topRectHeight),})
   }
 
   @Builder

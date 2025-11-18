@@ -8,6 +8,7 @@ export struct WeChatPage {
   viewModel: WeChartViewModel = new WeChartViewModel()
   private tabController: TabsController = new TabsController()
   @Local curIndex: number = 0
+  @Local topRectHeight: number | undefined = AppStorage.get('topRectHeight');
 
   aboutToAppear(): void {
     this.viewModel.onCreate()
@@ -24,7 +25,7 @@ export struct WeChatPage {
           })
         }.backgroundColor('#FFFFFF').barHeight(40).barMode(BarMode.Scrollable)
       }
-    }.height('100%').width('100%')
+    }.height('100%').width('100%').padding({top: this.getUIContext().px2vp(this.topRectHeight),})
   }
 
   @Builder

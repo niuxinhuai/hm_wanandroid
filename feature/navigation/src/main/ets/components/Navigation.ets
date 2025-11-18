@@ -7,6 +7,7 @@ export struct NavigationPage {
   private viewModel: NavigationViewModel = new NavigationViewModel()
   @Local curIndex: number = 0
   private tabController: TabsController = new TabsController()
+  @Local topRectHeight: number | undefined = AppStorage.get('topRectHeight');
 
   aboutToAppear(): void {
     this.viewModel.onCreate()
@@ -28,6 +29,7 @@ export struct NavigationPage {
         .barMode(BarMode.Scrollable)
         .vertical(true)
         .divider({ strokeWidth: 5, color: '#F7F7F7' })
+        .margin({top: this.getUIContext().px2vp(this.topRectHeight),})
       }
     }.height('100%').width('100%').backgroundColor('#F7F7F7')
   }
