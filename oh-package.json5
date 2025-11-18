@@ -8,7 +8,8 @@
     "@pura/harmony-utils": "^1.3.8",
     "ohos_smart_dialog": "^1.8.5",
     "@pura/picker_utils": "^1.0.1",
-    "@liushengyi/smartdb": "^4.0.1"
+    "@liushengyi/smartdb": "^4.0.1",
+    "@ohos/high_light_guide": "^1.0.4"
   },
   "devDependencies": {
     "@ohos/hypium": "1.0.21",

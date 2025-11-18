@@ -14,17 +14,18 @@ export struct ProjectPage {
   }
 
   build() {
-    Column() {
-
-      this.buildSearchBar()
-      if ((this.viewModel.wrap?.data?.length ?? 0) > 0) {
-        Tabs({ barPosition: BarPosition.Start, controller: this.tabController, index: $$this.curIndex }) {
-          ForEach(this.viewModel.wrap?.data, (item: KnowledgeChild, index: number) => {
-            TabContent() {
-              ProjectChildWidget({ child: item, index: index })
-            }.tabBar(this.TabBuilder(item, index))
-          })
-        }.backgroundColor('#FFFFFF').barHeight(40).barMode(BarMode.Scrollable)
+    Stack(){
+      Column() {
+        this.buildSearchBar()
+        if ((this.viewModel.wrap?.data?.length ?? 0) > 0) {
+          Tabs({ barPosition: BarPosition.Start, controller: this.tabController, index: $$this.curIndex }) {
+            ForEach(this.viewModel.wrap?.data, (item: KnowledgeChild, index: number) => {
+              TabContent() {
+                ProjectChildWidget({ child: item, index: index })
+              }.tabBar(this.TabBuilder(item, index))
+            })
+          }.backgroundColor('#FFFFFF').barHeight(40).barMode(BarMode.Scrollable)
+        }
       }
     }.height('100%').width('100%')
   }
@@ -37,9 +38,10 @@ export struct ProjectPage {
         .placeholderColor('#666666')
         .height(30)
         .layoutWeight(1)
-        .focusOnTouch(false).onClick(() =>{
-        RouterUtils.push(RouterConstants.search)
-      })
+        .focusOnTouch(false)
+        .onClick(() => {
+          RouterUtils.push(RouterConstants.search)
+        })
       Text('样例')
         .fontSize(16)
         .fontColor(Color.Red)
@@ -52,9 +54,11 @@ export struct ProjectPage {
         })
         .borderRadius(4)
         .backgroundColor('999999')
-        .margin({ left: 12 }).onClick(() => {
-        RouterUtils.push(RouterConstants.example)
-      })
+        .margin({ left: 12 })
+        .onClick(() => {
+          RouterUtils.push(RouterConstants.example)
+        })
+        .id('simple1_example')
       Text('搜索')
         .fontSize(16)
         .fontColor(Color.Red)
@@ -67,9 +71,10 @@ export struct ProjectPage {
         })
         .borderRadius(4)
         .backgroundColor('999999')
-        .margin({ left: 12 }).onClick(() => {
-        RouterUtils.push(RouterConstants.search)
-      })
+        .margin({ left: 12 })
+        .onClick(() => {
+          RouterUtils.push(RouterConstants.search)
+        })
     }.width('100%').padding({ left: 12, right: 12 })
   }
 
@@ -97,4 +102,8 @@ export struct ProjectPage {
       this.tabController.changeIndex(this.curIndex)
     }).height(40).padding({ right: 12, left: 12 })
   }
+}
+
+function showNormal() {
+
 }
